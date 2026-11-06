@@ -25,3 +25,34 @@ body{background:radial-gradient(ellipse at 88% 0%,#16804d 0,transparent 32%),lin
 @media(max-width:750px){.tree-art{left:25%;top:47%;font-size:155px}.hero-art{min-height:310px}.family-photo-slot{right:1%;top:23%;width:105px;height:132px;padding:9px;gap:5px}.family-photo-slot strong{font-size:10px}.family-photo-slot small{font-size:8px}.hero-art:before{top:5%;font-size:10px;letter-spacing:2px}.hero-art:after{font-size:31px;right:0;bottom:9%}.gift-card{left:3%;bottom:4%;width:87px;height:102px}.art-caption{bottom:0}.papers{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.paper{min-height:96px}}
 @media(max-width:390px){.tree-art{left:27%;font-size:132px}.family-photo-slot{width:94px;height:119px}.hero-art:after{right:-3px;font-size:26px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* Ajustes finales aprobados para la portada móvil de la JAMILIA */
+.topbar .brand{min-width:36px}.hero h1,.hero h1 em{color:#f3c553}.hero h1{line-height:1.08}
+.jamilia-love{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;margin:0 0 17px;color:#f1c34b;text-align:center}.jamilia-love svg{color:#f1c34b}.jamilia-love strong{font-size:15px;letter-spacing:3px}.jamilia-love span{font:italic 16px 'Playfair Display',serif;color:#f1c34b}
+.star-mark{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border:0;border-radius:0;background:transparent;color:#f1c34b;font-size:38px;line-height:1;text-shadow:0 0 12px #f3d56b88}
+.family-photo-slot{width:78%;height:270px;right:2%;top:50%;transform:translateY(-50%);border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#dcebd4,#9cbd9d);padding:0}
+.family-photo-slot:before{inset:0;border:2px solid #efc34f;border-radius:18px;z-index:3;pointer-events:none}
+.family-photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 47%;z-index:2}
+.photo-fallback{position:relative;z-index:1;color:#174832;font:600 15px 'Playfair Display',serif}
+.tree-art{left:16%;top:50%;font-size:190px;z-index:4}.hero-art .gift-card{z-index:5}
+.hero-art .art-caption{color:#f2dfa8}
+@media(max-width:750px){
+ .topbar{padding:0 20px}.topbar .brand{min-width:36px}.topbar .season{font-size:0}
+ .hero{padding:22px 22px 94px;gap:0;grid-template-columns:minmax(0,1fr);overflow:visible}
+ .hero-art{order:0;display:block;min-height:0;height:238px;margin:0 -2px 18px;overflow:visible}
+ .hero-art .halo{display:none}.hero-art .stars,.hero-art .art-caption,.hero-art .gift-card{display:none}
+ .family-photo-slot{width:100%;height:190px;left:0;right:0;top:0;transform:none;border-radius:16px;box-shadow:0 0 0 4px #efc34f33,0 10px 24px #021f1766}
+ .family-photo-slot:before{border-radius:16px}
+ .family-photo-slot img{object-position:center 48%}
+ .tree-art{left:2px;top:auto;bottom:-10px;transform:none;font-size:72px;filter:drop-shadow(0 6px 6px #021f1777)}
+ .hero-art:before{top:-8px;left:7%;right:7%;font-size:10px;letter-spacing:2px;z-index:6}
+ .hero-art:after{right:1px;bottom:-8px;font-size:34px;z-index:6}
+ .hero-copy{order:1;align-self:auto}.jamilia-love{margin:0 0 22px;gap:5px}.jamilia-love strong{font-size:15px}.jamilia-love span{font-size:16px}
+ .hero-copy>.eyebrow{display:none}.hero h1{font-size:clamp(35px,10.2vw,42px);line-height:1.08;letter-spacing:-.6px;margin:0 0 16px;max-width:100%;overflow-wrap:normal}
+ .hero-copy>p{font-size:16px;line-height:1.65;margin:0 0 22px;color:#e2ecd9}
+ .hero-actions{gap:14px}.hero-actions .button{width:100%;min-height:54px;padding:13px 14px;font-size:15px}.secure-note{font-size:14px;gap:8px}
+ .family-note{display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:13px;margin-top:24px;font-size:13px;line-height:1.5}.family-note .star-mark{flex-basis:42px}.family-note span:last-child{min-width:0;color:#f3e6bd}
+ .hero-bottom{display:none}.footer{padding-bottom:24px}
+}
+@media(max-width:390px){.hero{padding-left:18px;padding-right:18px}.family-photo-slot{height:174px}.hero-art{height:222px}.hero-copy>p{font-size:15px}.hero-copy h1{font-size:clamp(34px,10vw,39px)}.family-note{font-size:12px;gap:9px}}
+
+@media(max-width:750px){.app>footer{padding-bottom:24px}}

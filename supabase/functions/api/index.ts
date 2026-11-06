@@ -81,12 +81,12 @@ Deno.serve(async req => {
       if (!['drawn','in_progress','completed'].includes(event.status)) return json(409, { error: 'El sorteo todavía no está disponible.' });
       const { data: result, error: re } = await admin.from('assignments').select('receiver_id').eq('event_id', event.id).eq('giver_id', participant.id).single();
       if (re || !result) return json(409, { error: 'El resultado aún no está disponible.' });
-      const { data: recipient, error: ne } = await admin.from('participants').select('name').eq('id', result.receiver_id).single();
+      const { data: recipient, error: ne } = await admin.from('participants').select('name,photo_data').eq('id', result.receiver_id).single();
       if (ne || !recipient) throw ne || new Error('No se encontró el resultado.');
       await admin.from('reveal_events').upsert({ event_id: event.id, participant_id: participant.id }, { onConflict: 'event_id,participant_id', ignoreDuplicates: true });
       await admin.from('invitations').update({ revealed_at: new Date().toISOString() }).eq('event_id', event.id).eq('participant_id', participant.id).is('revealed_at', null);
       await admin.from('events').update({ status: 'in_progress' }).eq('id', event.id).eq('status', 'drawn');
-      return json(200, { recipient: recipient.name, budget: event.budget });
+      return json(200, { recipient: recipient.name, photo_data: recipient.photo_data ?? null, budget: event.budget });
     }
     return json(400, { error: 'Acción desconocida.' });
   } catch (error) {

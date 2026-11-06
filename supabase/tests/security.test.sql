@@ -1,0 +1,12 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+set local search_path=extensions,public;
+select plan(6);
+select ok((select relrowsecurity from pg_class where oid='public.assignments'::regclass), 'RLS está activo en assignments');
+select ok(not has_table_privilege('anon','public.assignments','select'), 'anon no puede consultar assignments');
+select ok(not has_table_privilege('authenticated','public.assignments','select'), 'authenticated no puede consultar assignments');
+select ok(not has_table_privilege('authenticated','public.invitations','select'), 'los hashes de invitación no son consultables');
+select ok(has_table_privilege('authenticated','public.invitation_status','select'), 'admin puede leer solo estado de invitación');
+select ok(not has_function_privilege('authenticated','public.check_invitation(text,text)','execute'), 'verificación de PIN está reservada a service role');
+select * from finish();
+rollback;

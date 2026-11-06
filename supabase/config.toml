@@ -1,0 +1,19 @@
+project_id = "amigo-secreto-navideno"
+
+[api]
+enabled = true
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+major_version = 17
+
+[auth]
+enabled = true
+enable_signup = false
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["https://TU-USUARIO.github.io/amigo-secreto-navidad"]
+
+[functions.api]
+verify_jwt = false
